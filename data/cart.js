@@ -33,5 +33,4 @@ export function removeFromCart(productId) {
     if (matchingItemIndex !== null) {
         cart.splice(matchingItemIndex, 1);
     }
-    console.log(cart);
 }

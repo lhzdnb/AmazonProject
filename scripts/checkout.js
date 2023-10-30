@@ -11,7 +11,7 @@ function showCartSummary() {
             return product.id === cartItem.productId;
         });
         cartSummaryHTML += `
-    <div class="cart-item-container">
+    <div class="cart-item-container js-cart-item-container-${product.id}">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -98,7 +98,7 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
         cart.forEach((cartItem, index) => {
             if (cartItem.productId === productId) {
                 removeFromCart(productId);
-                showCartSummary();
+                document.querySelector(`.js-cart-item-container-${productId}`).remove();
             }
         });
     });
