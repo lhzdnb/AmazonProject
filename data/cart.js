@@ -22,3 +22,16 @@ export function addToCart(productId) {
         });
     }
 }
+
+export function removeFromCart(productId) {
+    let matchingItemIndex = null;
+    cart.forEach((cartItem, index) => {
+        if (cartItem.productId === productId) {
+            matchingItemIndex = index;
+        }
+    });
+    if (matchingItemIndex !== null) {
+        cart.splice(matchingItemIndex, 1);
+    }
+    console.log(cart);
+}
