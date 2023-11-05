@@ -101,5 +101,17 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
                 document.querySelector(`.js-cart-item-container-${productId}`).remove();
             }
         });
+        updateReturnLink();
     });
 });
+
+function updateReturnLink() {
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+    document.querySelector('.return-to-home-link').innerHTML = `${cartQuantity} items`;
+    document.querySelector('.payment-summary-row').innerHTML = `Items (${cartQuantity})`;
+}
+
+document.addEventListener('DOMContentLoaded', updateReturnLink);
