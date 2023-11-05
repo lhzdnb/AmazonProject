@@ -3,7 +3,7 @@ import {products} from '../data/products.js';
 import {formatCurrency} from "./utils/money.js";
 
 let productsHTML = '';
-updateCartQuantity();
+document.addEventListener('DOMContentLoaded', updateCartQuantity);
 
 // 2. create the HTML template
 products.forEach((product) => {
