@@ -26,3 +26,9 @@ export function getDeliveryOption(deliveryOptionId) {
 
     return deliveryOption;
 }
+
+export function calculateDeliveryDate(deliveryOption) {
+    const today = dayjs();
+    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+    return deliveryDate.format('dddd, MMMM D');
+}
