@@ -2,7 +2,6 @@ import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliv
 import {products} from '../../data/products.js';
 import formatCurrency from "../utils/money.js"; // default export
 import {deliveryOptions, getDeliveryOption, calculateDeliveryDate} from "../../data/deliveryOptions.js";
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {renderPaymentSummary} from "./paymentSummary.js";
 import renderCheckOutHeader from "./checkOutHeader.js";
 
