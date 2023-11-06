@@ -107,7 +107,6 @@ export function renderOrderSummary() {
     function updateCartQuantity() {
         let cartQuantity = calculateCartQuantity();
         document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
-        document.querySelector('.js-payment-summary-quantity').innerHTML = `Items (${cartQuantity})`;
     }
 
 
