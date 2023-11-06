@@ -114,7 +114,8 @@ export function renderOrderSummary() {
         if (newQuantity >=0 && newQuantity < 1000) {
             document.querySelector(`.js-cart-item-container-${productID}`).classList.remove('is-editing-quantity');
             updateQuantity(productID, newQuantity);
-            document.querySelector('.js-quantity-label').innerHTML = newQuantity.toString();
+            // document.querySelector('.js-quantity-label').innerHTML = newQuantity.toString();
+            renderOrderSummary();
             renderCheckOutHeader();
         }
         else {
