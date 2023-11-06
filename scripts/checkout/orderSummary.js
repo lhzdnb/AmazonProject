@@ -95,7 +95,8 @@ export function renderOrderSummary() {
             cart.forEach((cartItem, index) => {
                 if (cartItem.productId === productId) {
                     removeFromCart(productId);
-                    document.querySelector(`.js-cart-item-container-${productId}`).remove();
+                    // document.querySelector(`.js-cart-item-container-${productId}`).remove();
+                    renderOrderSummary();
                 }
             });
             updateCartQuantity();
