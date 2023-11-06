@@ -4,9 +4,10 @@ import formatCurrency from "../utils/money.js"; // default export
 import {deliveryOptions, getDeliveryOption} from "../../data/deliveryOptions.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {renderPaymentSummary} from "./paymentSummary.js";
+import renderCheckOutHeader from "./checkOutHeader.js";
 
 export function renderOrderSummary() {
-    document.addEventListener('DOMContentLoaded', updateCartQuantity);
+    document.addEventListener('DOMContentLoaded', renderCheckOutHeader);
     let cartSummaryHTML = '';
     cart.forEach((cartItem) => {
         const product = products.find((product) => {
@@ -99,15 +100,10 @@ export function renderOrderSummary() {
                     renderOrderSummary();
                 }
             });
-            updateCartQuantity();
+            renderCheckOutHeader();
             renderPaymentSummary();
         });
     });
-
-    function updateCartQuantity() {
-        let cartQuantity = calculateCartQuantity();
-        document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
-    }
 
 
 
@@ -124,7 +120,7 @@ export function renderOrderSummary() {
             document.querySelector(`.js-cart-item-container-${productID}`).classList.remove('is-editing-quantity');
             updateQuantity(productID, newQuantity);
             document.querySelector('.js-quantity-label').innerHTML = newQuantity.toString();
-            updateCartQuantity();
+            renderCheckOutHeader();
         }
         else {
             alert('Quantity should in range of 0 to 1000!');
